@@ -56,9 +56,8 @@ nav ul li a, nav ul li span, header .action {
 
 .column {
   float: left;
-  height: 100%;
+  height: auto;
   width: 200px;
-  padding: 15px;
 }
 
 .column a {

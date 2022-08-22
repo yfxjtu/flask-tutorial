@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}更新测试计划 "{{ test_plan['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <div class="form-group">
+      <label for="title">测试计划名称</label>
+      <input name="title" id="title" class="form-control" value="{{ request.form['title'] or test_plan['title'] }}" required>
+    </div>
+    <div class="form-group">
+      <label for="content">测试内容</label>
+      <textarea name="content" id="content" class="form-control">{{ request.form['content'] or test_plan['content'] }}</textarea>
+    </div>
+    <input class="btn btn-info" type="submit" value="更新">
+  </form>
+  <hr>
+  <form action="{{ url_for('test_plan.delete', id=test_plan['id']) }}" method="post">
+    <input class="btn btn-danger" type="submit" value="删除" onclick="return confirm('确定删除吗?');">
+  </form>
+{% endblock %}
