@@ -37,10 +37,10 @@ def create_app(test_config=None):
     db.init_app(app)
 
     # apply the blueprints to the app
-    from flaskr import auth, blog, test_plan
+    from flaskr import auth, blog, test_plan,platform
 
     app.register_blueprint(auth.bp)
-    app.register_blueprint(blog.bp)
+    app.register_blueprint(platform.bp)
     app.register_blueprint(test_plan.bp)
 
     # make url_for('index') == url_for('blog.index')
